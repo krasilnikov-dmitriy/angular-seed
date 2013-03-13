@@ -2,9 +2,9 @@
 
 /* Filters */
 
-angular.module('myApp.filters', []).
-  filter('interpolate', ['version', function(version) {
-    return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
-    }
-  }]);
+angular.module('checkFilters', []).filter('check', function() {
+    return function(input) {
+        alert(input);
+        return input ? '\u2713' : '\u2718';
+    };
+});

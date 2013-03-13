@@ -2,11 +2,13 @@
 
 /* Controllers */
 
-
-function MyCtrl1() {}
-MyCtrl1.$inject = [];
-
-
-function MyCtrl2() {
+function CheckListCtrl($scope, Check) {
+    $scope.checks = Check.query();
+    $scope.orderProp = 'name';
 }
-MyCtrl2.$inject = [];
+
+
+function CheckDetailCtrl($scope, $routeParams, Check) {
+    $scope.check = Check.get({checkId: $routeParams.checkId}, function(check) {
+    });
+}
